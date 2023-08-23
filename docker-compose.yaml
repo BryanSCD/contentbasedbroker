@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    
+  mongodb:
+    image: mongo
+    container_name: bpm_mongodb   
+    ports:
+      - "27017:27017"
+    restart: unless-stopped       
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - ./mongo-data:/data/db
