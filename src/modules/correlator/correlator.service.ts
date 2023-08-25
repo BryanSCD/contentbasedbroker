@@ -85,13 +85,12 @@ export class CorrelatorService {
   private async sendPutRequest(
     host: string,
     messages: Message[],
-    callback?: ConnectionHandlerCallback,
   ): Promise<AxiosResponse<any, any>> {
+    const messages_content = messages.map((message) => message.content);
     const res = await ConnectionHandler.putRequest(
       host,
-      JSON.stringify(messages),
+      JSON.stringify(messages_content),
     );
-    if (callback) callback();
     return res;
   }
 }
