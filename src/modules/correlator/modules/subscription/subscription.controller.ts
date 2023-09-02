@@ -66,8 +66,8 @@ export class SubscriptionController {
     if (cpeeCallback)
       response
         .header({ 'CPEE-CALLBACK': 'true' })
-        .status(HttpStatus.OK)
-        .send('');
+        .status(HttpStatus.CREATED)
+        .send(subscription._id.toString());
 
     if (createSubscriptionDto.read_old) {
       const matchedSubscription =
