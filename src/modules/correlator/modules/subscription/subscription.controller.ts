@@ -63,12 +63,11 @@ export class SubscriptionController {
       tempSubscription,
     );
 
-    let header = {};
-    if (cpeeCallback) {
-      header = { 'CPEE-CALLBACK': 'true' };
-    }
-
-    response.header(header);
+    if (cpeeCallback)
+      response
+        .header({ 'CPEE-CALLBACK': 'true' })
+        .status(HttpStatus.OK)
+        .send('');
 
     if (createSubscriptionDto.read_old) {
       const matchedSubscription =
@@ -80,7 +79,8 @@ export class SubscriptionController {
       }
     }
 
-    response.status(HttpStatus.CREATED).send(subscription._id.toString());
+    if (!cpeeCallback)
+      response.status(HttpStatus.CREATED).send(subscription._id.toString());
   }
 
   /**
