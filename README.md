@@ -25,6 +25,12 @@ Install packages:
 $ yarn install
 ```
 
+Upgrade packages:
+
+```bash
+$ yarn upgrade
+```
+
 ## Running the broker
 
 ```bash
@@ -49,10 +55,11 @@ $ yarn test:e2e
 1. Run the correlator
 2. Go to http://localhost:3001/api
 
-
 ## Check documentation (compodoc)
+
 ```bash
 # run compodoc
 $ npx @compodoc/compodoc -p tsconfig.json -s
 ```
+
 Then go to the served webpage indicated in terminal.
